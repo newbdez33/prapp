@@ -9,12 +9,15 @@ Price robot APP商品及价格数据请求API
 
 ### 查询商品详情 [GET]
 
+得到一个已经存在的商品的价格。
+
 + Response 200 (application/json)
 
         {
             "photo": "http://www.fakeimage.com/1.png",
             "created_at": "2015-08-05T08:40:51.620Z",
             "title": "サッポロ 麦とホップ 350ml×24本",
+            "currency": "JPY",
             "prices": {
                 "highest":2767,
                 "lowest":2440,
@@ -31,46 +34,39 @@ Price robot APP商品及价格数据请求API
 
 ### 创建商品条目 [POST]
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+接收一个amazon的url，创建一条新的商品条目。
+虽然这个条件可能已经被创建过。
 
 + Request (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+            "url": "https://www.amazon.co.jp/dp/B00ICE6OZ6/ref=cm_sw_r_cp_ep_dp_F7-XybV874BGM",
+            "title": "デコレ aurinko メラミンランチプレート うさぎ"
         }
 
 + Response 201 (application/json)
 
     + Headers
 
-            Location: /questions/2
+            Location: /p/2
 
     + Body
 
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
+                "photo": "http://www.fakeimage.com/1.png",
+                "created_at": "2015-08-05T08:40:51.620Z",
+                "title": "サッポロ 麦とホップ 350ml×24本",
+                "currency": "JPY",
+                "prices": {
+                    "highest":2767,
+                    "lowest":2440,
+                    "average":2748,
+                    "current":2767,
+                    [
+                        "2017-01-01": 2766,
+                        "2017-01-02": 2765,
+                        "2017-01-03": 2764,
+                        "2017-01-04": 2763
+                    ]
+                }
             }
