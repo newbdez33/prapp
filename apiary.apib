@@ -5,33 +5,29 @@ HOST: http://api.pricerobot.org/v1
 
 Price robot APP商品及价格数据请求API
 
-## 商品数据 [/p]
+## 商品数据 [/p/{pid}]
 
 ### 查询商品详情 [GET]
 
 + Response 200 (application/json)
 
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
+        {
+            "photo": "http://www.fakeimage.com/1.png",
+            "created_at": "2015-08-05T08:40:51.620Z",
+            "title": "サッポロ 麦とホップ 350ml×24本",
+            "prices": {
+                "highest":2767,
+                "lowest":2440,
+                "average":2748,
+                "current":2767,
+                [
+                    "2017-01-01": 2766,
+                    "2017-01-02": 2765,
+                    "2017-01-03": 2764,
+                    "2017-01-04": 2763
                 ]
             }
-        ]
+        }
 
 ### 创建商品条目 [POST]
 
