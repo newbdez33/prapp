@@ -13,6 +13,9 @@ Price robot APP商品及价格数据请求API
 第一版只返回最新20条。
 参数q，可以是一个url也可以是一个keywordx 
 
++ Parameters
+    + q - 查询keyword或url
+
 + Response 200 (application/json)
 
         {
@@ -36,22 +39,16 @@ Price robot APP商品及价格数据请求API
             }
         }
 
+
 ### 创建商品条目 [POST]
 
 接收一个amazon的url，创建一条新的商品条目。
 虽然这个条件可能已经被创建过。
 
-+ Request (application/json)
++ Parameters
+    + q - 商品url
 
-        {
-            "url": "https://www.amazon.co.jp/dp/B00ICE6OZ6/ref=cm_sw_r_cp_ep_dp_F7-XybV874BGM",
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /p/2
++ Response 200 (text/plain)
 
     + Body
 
