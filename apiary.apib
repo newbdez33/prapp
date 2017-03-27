@@ -5,7 +5,7 @@ HOST: http://api.pricerobot.org/v1
 
 Price robot APP商品及价格数据请求API
 
-## 商品数据 [/p/{q}]
+## 查询商品详情 [/p/{pid}]
 
 ### 查询商品详情 [GET]
 
@@ -14,7 +14,7 @@ Price robot APP商品及价格数据请求API
 参数q，可以是一个url也可以是一个keywordx 
 
 + Parameters
-    + q - 查询keyword或url
+    + pid - 查询Product id
 
 + Response 200 (application/json)
 
@@ -40,13 +40,17 @@ Price robot APP商品及价格数据请求API
         }
 
 
+## 创建商品条目 [/p/]
+
 ### 创建商品条目 [POST]
 
 接收一个amazon的url，创建一条新的商品条目。
 虽然这个条件可能已经被创建过。
 
-+ Parameters
-    + q - 商品url
++ Attributes
+    + url:"https://www.amazon.co.jp/dp/B01J41JLTQ" (string, required)
+    
++ Request (application/x-www-form-urlencoded)
 
 + Response 200 (text/plain)
 
